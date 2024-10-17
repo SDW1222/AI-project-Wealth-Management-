@@ -12,6 +12,7 @@ app = Flask(__name__)
 user_name = ""
 flag = 1
 
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     global flag
@@ -52,4 +53,8 @@ def portfolio_gen():
     q = request.form.get("q")
     r = model.generate_content(q)
     return(render_template("portfolio_gen_reply.html",r=r.text))
+
+
+if __name__ == "__main__":
+    app.run()
 
