@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reply</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h2, h4 {
+            color: #0044cc; /* Matching blue color */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .reply-message {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Styles for the blue-themed buttons */
+        .btn {
+            display: inline-block;
+            background-color: #0044cc; /* Blue color */
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0033a0; /* Darker blue on hover */
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Reply</h2>
+        <div class="reply-message">
+            <h4>{{r}}</h4>
+        </div>
+        <form action="/main" method="post">
+            <input type="submit" class="btn" value="Main">
+        </form>
+        <form action="/" method="post">
+            <input type="submit" class="btn" value="End">
+        </form>
+    </div>
+</body>
+</html>

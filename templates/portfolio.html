@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio Suggestions</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for the blue-themed buttons */
+        .ai-question-btn {
+            display: inline-block;
+            background-color: #0044cc; /* Blue color */
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 300px; /* Ensure enough width */
+            height: auto; /* Dynamic height */
+            text-align: center;
+            word-wrap: break-word;
+            white-space: normal; /* Allow wrapping */
+            transition: background-color 0.3s ease;
+        }
+
+        .ai-question-btn:hover {
+            background-color: #0033a0; /* Darker blue on hover */
+        }
+
+        .ai-questions-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .ai-questions-container form {
+            flex: 1 1 45%; /* Allow two buttons per row */
+            max-width: 45%; /* Prevent excessive stretching */
+            margin: 10px; /* Add space between buttons */
+        }
+
+        /* Style for the container and input form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 250px;
+        }
+
+        input[type="submit"] {
+            background-color: #0044cc; /* Blue color for submit button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0033a0; /* Darker blue on hover */
+        }
+
+        h2 {
+            color: #0044cc; /* Matching blue color */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section id="ai-questions-section">
+        <h2>We will ask you a few questions to personalize suggestions:</h2>
+
+        <!-- Four AI-powered question buttons -->
+        <div class="ai-questions-container">
+            <form action="/genai_analyze_risk" method="post">
+                <input type="submit" class="ai-question-btn" value="What are the key factors to consider when balancing a portfolio?">
+            </form>
+            <form action="/genai_optimize_allocation" method="post">
+                <input type="submit" class="ai-question-btn" value="How can I optimize my asset allocation?">
+            </form>
+            <form action="/genai_market_trends" method="post">
+                <input type="submit" class="ai-question-btn" value="What market trends should I watch for?">
+            </form>
+            <form action="/genai_performance_last_quarter" method="post">
+                <input type="submit" class="ai-question-btn" value="What's the difference between active and passive portfolio management?">
+            </form>
+        </div>
+
+        <!-- Optional: A field to ask a custom question directly to GenAI -->
+        <form action="/genai_custom_question" method="post">
+            <input type="text" name="q" placeholder="Ask a custom question">
+            <input type="submit" value="Get AI Suggestions">
+        </form>
+
+    </section>
+</body>
+</html>
