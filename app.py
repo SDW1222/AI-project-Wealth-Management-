@@ -119,13 +119,6 @@ def house_custom_question():
 
     return render_template("house_custom_question_reply.html", r=processed_response)
 
-
-
-@app.route("/AI_Powered_Investment_Suggestions", methods=["GET", "POST"])
-def AI_Powered_Investment_Suggestions():
-    return render_template("AI_Powered_Investment_Suggestions.html")  
-
-
 # Dummy profiles, replace with actual profile data if needed
 profiles = {
     1: {"name": "Profile 1", "risk_tolerance": "low", "investment_goal": "retirement"},
@@ -155,4 +148,3 @@ def ai_suggestions():
 
 if __name__ == "__main__":
     app.run()
-
