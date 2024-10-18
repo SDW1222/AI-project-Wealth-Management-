@@ -216,5 +216,131 @@ def get_suggestions(profile_id):
 def ai_suggestions():
     return render_template('AI_Powered_Investment_Suggestions.html', suggestion="")
 
+@app.route("/retirement",methods=["GET","POST"])
+def retirement():
+    return(render_template("retirement.html"))
+
+@app.route("/retirement_1",methods=["GET","POST"])
+def retirement_1():
+    q = "What’s the best way to start saving for retirement?"
+    r = model.generate_content(q)
+    # Preprocessing response to format better for HTML
+    processed_response = r.text
+    # Convert headings (e.g., '1*', '2*') to <h4> tags
+    processed_response = processed_response.replace("1*", "<h4>")
+    processed_response = processed_response.replace("2*", "</h4><h4>")
+    processed_response = processed_response.replace("3*", "</h4><h4>")
+    processed_response = processed_response.replace("4*", "</h4><h4>")
+    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
+    # Convert markers (*) to bold and lists where appropriate
+    processed_response = processed_response.replace("*", "<strong>")
+    processed_response = processed_response.replace("\n- ", "<ul><li>")
+    processed_response = processed_response.replace("\n", "</li><li>")
+    processed_response += "</li></ul>"
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Add paragraph tags for text that isn't part of a list
+    processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
+    return(render_template("retirement_1.html",r=processed_response))
+
+
+@app.route("/retirement_2",methods=["GET","POST"])
+def retirement_2():
+    q = "How can I structure my retirement savings?"
+    r = model.generate_content(q)
+    # Preprocessing response to format better for HTML
+    processed_response = r.text
+    # Convert headings (e.g., '1*', '2*') to <h4> tags
+    processed_response = processed_response.replace("1*", "<h4>")
+    processed_response = processed_response.replace("2*", "</h4><h4>")
+    processed_response = processed_response.replace("3*", "</h4><h4>")
+    processed_response = processed_response.replace("4*", "</h4><h4>")
+    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
+    # Convert markers (*) to bold and lists where appropriate
+    processed_response = processed_response.replace("*", "<strong>")
+    processed_response = processed_response.replace("\n- ", "<ul><li>")
+    processed_response = processed_response.replace("\n", "</li><li>")
+    processed_response += "</li></ul>"
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Add paragraph tags for text that isn't part of a list
+    processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
+    return(render_template("retirement_2.html",r=processed_response))
+
+@app.route("/retirement_3",methods=["GET","POST"])
+def retirement_3():
+    q = "What should I know about taxes in retirement?"
+    r = model.generate_content(q)
+    # Preprocessing response to format better for HTML
+    processed_response = r.text
+    # Convert headings (e.g., '1*', '2*') to <h4> tags
+    processed_response = processed_response.replace("1*", "<h4>")
+    processed_response = processed_response.replace("2*", "</h4><h4>")
+    processed_response = processed_response.replace("3*", "</h4><h4>")
+    processed_response = processed_response.replace("4*", "</h4><h4>")
+    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
+    # Convert markers (*) to bold and lists where appropriate
+    processed_response = processed_response.replace("*", "<strong>")
+    processed_response = processed_response.replace("\n- ", "<ul><li>")
+    processed_response = processed_response.replace("\n", "</li><li>")
+    processed_response += "</li></ul>"
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Add paragraph tags for text that isn't part of a list
+    processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
+    return(render_template("retirement_3.html",r=processed_response))
+
+@app.route("/retirement_4",methods=["GET","POST"])
+def retirement_4():
+    q = "How do I assess my future income needs for retirement?"
+    r = model.generate_content(q)
+    # Preprocessing response to format better for HTML
+    processed_response = r.text
+    # Convert headings (e.g., '1*', '2*') to <h4> tags
+    processed_response = processed_response.replace("1*", "<h4>")
+    processed_response = processed_response.replace("2*", "</h4><h4>")
+    processed_response = processed_response.replace("3*", "</h4><h4>")
+    processed_response = processed_response.replace("4*", "</h4><h4>")
+    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
+    # Convert markers (*) to bold and lists where appropriate
+    processed_response = processed_response.replace("*", "<strong>")
+    processed_response = processed_response.replace("\n- ", "<ul><li>")
+    processed_response = processed_response.replace("\n", "</li><li>")
+    processed_response += "</li></ul>"
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Add paragraph tags for text that isn't part of a list
+    processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
+    return(render_template("retirement_4.html",r=processed_response))
+
+@app.route("/retirement_5",methods=["GET","POST"])
+def retirement_5():
+    return(render_template("retirement_5.html"))
+
+@app.route("/retirement_reply", methods=["GET", "POST"])
+def retirement_reply():
+    q = request.form.get("q")
+    r = model.generate_content(q)
+    # Preprocessing response to format better for HTML
+    processed_response = r.text
+    # Convert headings (e.g., '1*', '2*') to <h4> tags
+    processed_response = processed_response.replace("1*", "<h4>")
+    processed_response = processed_response.replace("2*", "</h4><h4>")
+    processed_response = processed_response.replace("3*", "</h4><h4>")
+    processed_response = processed_response.replace("4*", "</h4><h4>")
+    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
+    # Convert markers (*) to bold and lists where appropriate
+    processed_response = processed_response.replace("*", "<strong>")
+    processed_response = processed_response.replace("\n- ", "<ul><li>")
+    processed_response = processed_response.replace("\n", "</li><li>")
+    processed_response += "</li></ul>"
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Add paragraph tags for text that isn't part of a list
+    processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
+
+    return render_template("retirement_reply.html", r=processed_response)
+
+
 if __name__ == "__main__":
     app.run()
