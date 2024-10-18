@@ -108,6 +108,7 @@ def house_loan_options():
 
     # Add paragraph tags for text that isn't part of a list
     processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
+    
     return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for "How can I figure out the right budget for my new home?"
@@ -185,6 +186,7 @@ def house_custom_question():
 
     # Add paragraph tags for text that isn't part of a list
     processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
+
     return render_template("house_custom_question_reply.html", r=processed_response)
 
 # Dummy profiles, replace with actual profile data if needed
