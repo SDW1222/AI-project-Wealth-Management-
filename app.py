@@ -205,14 +205,14 @@ def get_suggestions(profile_id):
     profile = profiles.get(profile_id)
     if profile:
         suggestion = get_ai_suggestion(profile)
-        return render_template('AI-Powered Investment Suggestions.html', suggestion=suggestion)
+        return render_template('AI_Powered_Investment_Suggestions.html', suggestion=suggestion)
     else:
-        return render_template('AI-Powered Investment Suggestions.html', suggestion="Profile not found")
+        return render_template('AI_Powered_Investment_Suggestions.html', suggestion="Profile not found")
 
 # Main route for displaying the AI-powered page
 @app.route('/ai-suggestions')
 def ai_suggestions():
-    return render_template('AI-Powered Investment Suggestions.html', suggestion="")
+    return render_template('AI_Powered_Investment_Suggestions.html', suggestion="")
 
 if __name__ == "__main__":
     app.run()
