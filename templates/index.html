@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wealth Management Portal</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 
@@ -23,14 +23,9 @@
     <section id="dashboard">
         <h2>Personalized Dashboard</h2>
         <div class="card">
-            <label for="accountBalance">Account Balance:</label>
-            <input type="number" id="accountBalance" value="250000" readonly>
-            
-            <label for="investmentGrowth">Investment Growth (YTD):</label>
-            <input type="text" id="investmentGrowth" value="12%" readonly>
-            
-            <label for="goalsProgress">Goals Progress:</label>
-            <input type="text" id="goalsProgress" value="65%" readonly>
+            <p><strong>Account Balance:</strong> $250,000</p>
+            <p><strong>Investment Growth:</strong> 12% YTD</p>
+            <p><strong>Goals Progress:</strong> 65%</p>
         </div>
     </section>
 
@@ -38,43 +33,30 @@
     <section id="goals">
         <h2>Goal-Based Financial Planning</h2>
         <div class="goal">
-            <label for="retirementGoal">Retirement Goal:</label>
-            <input type="text" id="retirementGoal" value="Save $1M by 2040" readonly>
-            
-            <label for="retirementStatus">Status:</label>
-            <input type="text" id="retirementStatus" value="40% Achieved" readonly>
-            
+            <p><strong>Retirement Goal:</strong> Save $1M by 2040</p>
+            <p><strong>Status:</strong> 40% Achieved</p>
             <button>View Strategy</button>
         </div>
         <div class="goal">
-            <label for="homeGoal">Home Purchase Goal:</label>
-            <input type="text" id="homeGoal" value="Save $500K by 2030" readonly>
-            
-            <label for="homeStatus">Status:</label>
-            <input type="text" id="homeStatus" value="70% Achieved" readonly>
-            
-            <!-- Button to redirect to house_planning.html -->
-        <form action="/house_planning" method="GET">
-            <button type="submit">View Strategy</button>
-        </form>
+            <p><strong>Home Purchase Goal:</strong> Save $500K by 2030</p>
+            <p><strong>Status:</strong> 70% Achieved</p>
+            <button>View Strategy</button>
         </div>
     </section>
 
     <!-- Portfolio Management Section -->
     <section id="portfolio">
         <h2>Portfolio Management & Analytics</h2>
-        <form action="/portfolio" method="post">
-            <input type="submit" value="Portfolio Management & Analytics">
-            <label>Asset Allocation:</label>
+        <div class="portfolio-summary">
+            <p><strong>Asset Allocation:</strong></p>
             <ul>
                 <li>Stocks: 50%</li>
                 <li>Bonds: 30%</li>
                 <li>Real Estate: 10%</li>
                 <li>Cash: 10%</li>
             </ul>
-            <label>Risk Level:</label>
-            <input type="text" value="Moderate" readonly>
-            
+            <p><strong>Risk Level:</strong> Moderate</p>
+            <button>View Analytics</button>
         </div>
     </section>
 
@@ -82,13 +64,13 @@
     <section id="ai-suggestions">
         <h2>AI-Powered Investment Suggestions</h2>
         <div class="suggestions">
-            <label>Based on your profile, we recommend:</label>
+            <p><strong>Based on your profile, we recommend:</strong></p>
             <ul>
                 <li>Increase bonds allocation to 40%</li>
                 <li>Consider investing in emerging markets</li>
                 <li>Reduce risk by diversifying real estate holdings</li>
             </ul>
-            <button>View More Suggestions</button>
+            <a href="/ai-suggestions"><button>View More Suggestions</button></a>
         </div>
     </section>
 
