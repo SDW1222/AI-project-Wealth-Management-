@@ -117,7 +117,7 @@ def house_custom_question():
     processed_response = processed_response.replace("Key Points:", "<h4>Key Points:</h4>")  # Add heading
     processed_response = processed_response.replace("Consider:", "<h4>Consider:</h4>")  # Add heading
 
-    return render_template("house_savings_target_reply.html", r=processed_response)
+    return render_template("house_custom_question_reply.html", r=processed_response)
 
 # Dummy profiles, replace with actual profile data if needed
 profiles = {
