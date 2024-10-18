@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Investment Suggestions</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Linking the external stylesheet -->
+</head>
+<body>
+    <h1>AI-Powered Investment Suggestions</h1>
+    <p>Welcome to our platform where AI provides personalized investment suggestions to help you achieve your financial goals.</p>
+
+    <section id="suggestions">
+        <h2>Investment Suggestions Based on Your Profile</h2>
+
+        <!-- Form for Profile 1 -->
+        <form action="/get_suggestions/1" method="POST">
+            <button type="submit">Increase bonds allocation to 40%</button>
+        </form>
+
+        <!-- Form for Profile 2 -->
+        <form action="/get_suggestions/2" method="POST">
+            <button type="submit">Consider investing in emerging markets</button>
+        </form>
+
+        <!-- Form for Profile 3 -->
+        <form action="/get_suggestions/3" method="POST">
+            <button type="submit">Reduce risk by diversifying real estate holdings</button>
+        </form>
+    </section>
+
+    <p id="apiSuggestion">{{ suggestion }}</p> <!-- Flask will inject the AI suggestion here -->
+
+    <!-- Stock Checker Section -->
+    <section id="stock-checker">
+        <h2>Check if a Stock is Worth Investing In</h2>
+        <label for="stockInput">Enter Stock Name (e.g., AAPL): </label>
+        <input type="text" id="stockInput" placeholder="Enter stock symbol">
+        <button onclick="checkStockInvestment()">Check Investment</button>
+        <p id="investmentSuggestion"></p>
+    </section>
+
+    <script>
+        function checkStockInvestment() {
+            const stockName = document.getElementById('stockInput').value;
+            const suggestion = document.getElementById('investmentSuggestion');
+
+            // Randomly decide if the stock is worth investing in
+            const isWorthInvesting = Math.random() > 0.5; // 50% chance
+
+            if (isWorthInvesting) {
+                suggestion.textContent = stockName + " is worth investing in!";
+                suggestion.style.color = '#27AE60'; // Green for worth investing
+            } else {
+                suggestion.textContent = stockName + " is not recommended for investment at the moment.";
+                suggestion.style.color = '#C0392B'; // Red for not worth investing
+            }
+        }
+    </script>
+</body>
+</html>
