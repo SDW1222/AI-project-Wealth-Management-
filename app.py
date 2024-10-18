@@ -60,40 +60,65 @@ def portfolio_gen():
 def house_planning():
     return render_template("house_planning.html")  # A main page for house purchase questions if needed
 
-# Route for "How much should I save for a house down payment?"
 @app.route("/house_savings_target", methods=["GET", "POST"])
 def house_savings_target():
     q = "How much should I save for a house down payment?"
     r = model.generate_content(q)
-    return render_template("house_savings_target_reply.html", r=r.text)
+
+    # Preprocessing response to format better for HTML
+    processed_response = r.text.replace("\n", "</p><p>")  # Add paragraph tags
+    processed_response = processed_response.replace("Key Points:", "<h4>Key Points:</h4>")  # Add heading
+    processed_response = processed_response.replace("Consider:", "<h4>Consider:</h4>")  # Add heading
+
+    return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for "What are my best loan options for home financing?"
 @app.route("/house_loan_options", methods=["GET", "POST"])
 def house_loan_options():
     q = "What are my best loan options for home financing?"
     r = model.generate_content(q)
-    return render_template("house_loan_options_reply.html", r=r.text)
+# Preprocessing response to format better for HTML
+    processed_response = r.text.replace("\n", "</p><p>")  # Add paragraph tags
+    processed_response = processed_response.replace("Key Points:", "<h4>Key Points:</h4>")  # Add heading
+    processed_response = processed_response.replace("Consider:", "<h4>Consider:</h4>")  # Add heading
+
+    return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for "How can I figure out the right budget for my new home?"
 @app.route("/house_budget_affordability", methods=["GET", "POST"])
 def house_budget_affordability():
     q = "How can I figure out the right budget for my new home?"
     r = model.generate_content(q)
-    return render_template("house_budget_affordability_reply.html", r=r.text)
+# Preprocessing response to format better for HTML
+    processed_response = r.text.replace("\n", "</p><p>")  # Add paragraph tags
+    processed_response = processed_response.replace("Key Points:", "<h4>Key Points:</h4>")  # Add heading
+    processed_response = processed_response.replace("Consider:", "<h4>Consider:</h4>")  # Add heading
+
+    return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for "What types of home insurance should I consider?"
 @app.route("/house_insurance_options", methods=["GET", "POST"])
 def house_insurance_options():
     q = "What types of home insurance should I consider?"
     r = model.generate_content(q)
-    return render_template("house_insurance_options_reply.html", r=r.text)
+# Preprocessing response to format better for HTML
+    processed_response = r.text.replace("\n", "</p><p>")  # Add paragraph tags
+    processed_response = processed_response.replace("Key Points:", "<h4>Key Points:</h4>")  # Add heading
+    processed_response = processed_response.replace("Consider:", "<h4>Consider:</h4>")  # Add heading
+
+    return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for handling custom house purchase questions
 @app.route("/house_custom_question", methods=["GET", "POST"])
 def house_custom_question():
     user_question = request.form['q']  # Custom question entered by the user
     r = model.generate_content(user_question)
-    return render_template("house_custom_question_reply.html", r=r.text)
+# Preprocessing response to format better for HTML
+    processed_response = r.text.replace("\n", "</p><p>")  # Add paragraph tags
+    processed_response = processed_response.replace("Key Points:", "<h4>Key Points:</h4>")  # Add heading
+    processed_response = processed_response.replace("Consider:", "<h4>Consider:</h4>")  # Add heading
+
+    return render_template("house_savings_target_reply.html", r=processed_response)
 
 
 if __name__ == "__main__":

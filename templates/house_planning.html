@@ -85,25 +85,27 @@
         <h2>Goal-Based Financial Planning: House Purchase</h2>
 
         <!-- Four AI-powered question buttons for house purchase financial planning -->
-        <div class="ai-questions-container">
-            <form action="/genai_savings_target" method="post">
-                <input type="submit" class="ai-question-btn" value="How much should I save for a house down payment?">
-            </form>
-            <form action="/genai_loan_options" method="post">
-                <input type="submit" class="ai-question-btn" value="What are my best loan options for home financing?">
-            </form>
-            <form action="/genai_budget_affordability" method="post">
-                <input type="submit" class="ai-question-btn" value="How do I know how much house I can afford?">
-            </form>
-            <form action="/genai_home_insurance" method="post">
-                <input type="submit" class="ai-question-btn" value="What types of home insurance should I consider?">
-            </form>
-        </div>
+        <!-- Four AI-powered question buttons for house purchase financial planning -->
+<div class="ai-questions-container">
+    <form action="/house_savings_target" method="post">
+        <input type="submit" class="ai-question-btn" value="How much should I save for a house down payment?">
+    </form>
+    <form action="/house_loan_options" method="post">
+        <input type="submit" class="ai-question-btn" value="What are my best loan options for home financing?">
+    </form>
+    <form action="/house_budget_affordability" method="post">
+        <input type="submit" class="ai-question-btn" value="How can I figure out the right budget for my new home?">
+    </form>
+    <form action="/house_insurance_options" method="post">
+        <input type="submit" class="ai-question-btn" value="What types of home insurance should I consider?">
+    </form>
+</div>
+
 
         <!-- Optional: A field to ask a custom question directly to GenAI -->
         <form action="/genai_custom_question" method="post">
             <input type="text" name="q" placeholder="Ask a custom question about buying a house">
-            <input type="submit" value="Get AI Suggestions">
+            <input type="submit" value="Suggestions">
         </form>
 
     </section>
