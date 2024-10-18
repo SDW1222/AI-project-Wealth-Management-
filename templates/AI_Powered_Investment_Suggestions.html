@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>AI-Powered Investment Suggestions</title>
-    <style>
+    <!-- <style>
         /* General Styles */
         body {
             font-family: Arial, sans-serif;
@@ -69,7 +70,7 @@
             font-weight: bold;
             margin-top: 20px;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <h1>AI-Powered Investment Suggestions</h1>
@@ -122,5 +123,8 @@
             }
         }
     </script>
+
+    <a href="/"><button>Back to Dashboard</button></a>
+
 </body>
 </html>
