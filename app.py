@@ -142,8 +142,8 @@ def get_suggestions(profile_id):
         return render_template('AI-Powered Investment Suggestions.html', suggestion="Profile not found")
 
 # Main route for displaying the AI-powered page
-@app.route('/')
-def index():
+@app.route('/ai-suggestions')
+def ai_suggestions():
     return render_template('AI-Powered Investment Suggestions.html', suggestion="")
 
 if __name__ == "__main__":
