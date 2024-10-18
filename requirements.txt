@@ -4,5 +4,6 @@ gunicorn
 numpy
 textblob
 transformers
+requests
 
 #
