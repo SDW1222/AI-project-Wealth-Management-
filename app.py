@@ -1,8 +1,9 @@
-from flask import Flask,render_template,request
+from flask import Flask, render_template, request, jsonify
 import google.generativeai as genai
 import os
 import numpy as np
 import textblob
+import requests
 
 
 model = genai.GenerativeModel("gemini-1.5-flash")
@@ -53,8 +54,6 @@ def portfolio_gen():
     q = request.form.get("q")
     r = model.generate_content(q)
     return(render_template("portfolio_gen_reply.html",r=r.text))
-
-
 
 @app.route("/house_planning", methods=["GET", "POST"])
 def house_planning():
@@ -120,6 +119,32 @@ def house_custom_question():
 
     return render_template("house_savings_target_reply.html", r=processed_response)
 
+# Dummy profiles, replace with actual profile data if needed
+profiles = {
+    1: {"name": "Profile 1", "risk_tolerance": "low", "investment_goal": "retirement"},
+    2: {"name": "Profile 2", "risk_tolerance": "high", "investment_goal": "growth"},
+    3: {"name": "Profile 3", "risk_tolerance": "moderate", "investment_goal": "income"}
+}
+# Function to get AI investment suggestions using a simulated API call
+def get_ai_suggestion(profile):
+    api_url = "https://api.makersuite.google.com/investment_suggestions"  # Example API URL
+    payload = {"profile": profile}
+    return f"Based on {profile['name']} with a {profile['risk_tolerance']} risk tolerance, we suggest focusing on {profile['investment_goal']}."
+    
+# Route to handle profile suggestion retrieval
+@app.route('/get_suggestions/<int:profile_id>', methods=['POST'])
+def get_suggestions(profile_id):
+    profile = profiles.get(profile_id)
+    if profile:
+        suggestion = get_ai_suggestion(profile)
+        return render_template('AI-Powered Investment Suggestions.html', suggestion=suggestion)
+    else:
+        return render_template('AI-Powered Investment Suggestions.html', suggestion="Profile not found")
+
+# Main route for displaying the AI-powered page
+@app.route('/')
+def index():
+    return render_template('AI-Powered Investment Suggestions.html', suggestion="")
 
 if __name__ == "__main__":
     app.run()
