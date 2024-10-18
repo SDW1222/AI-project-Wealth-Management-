@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal-Based Financial Planning: House Purchase</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for the blue-themed buttons */
+        .ai-question-btn {
+            display: inline-block;
+            background-color: #0044cc; /* Blue color */
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 300px; /* Ensure enough width */
+            height: auto; /* Dynamic height */
+            text-align: center;
+            word-wrap: break-word;
+            white-space: normal; /* Allow wrapping */
+            transition: background-color 0.3s ease;
+        }
+
+        .ai-question-btn:hover {
+            background-color: #0033a0; /* Darker blue on hover */
+        }
+
+        .ai-questions-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .ai-questions-container form {
+            flex: 1 1 45%; /* Allow two buttons per row */
+            max-width: 45%; /* Prevent excessive stretching */
+            margin: 10px; /* Add space between buttons */
+        }
+
+        /* Style for the container and input form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 250px;
+        }
+
+        input[type="submit"] {
+            background-color: #0044cc; /* Blue color for submit button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0033a0; /* Darker blue on hover */
+        }
+
+        h2 {
+            color: #0044cc; /* Matching blue color */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section id="goal-planning-section">
+        <h2>Goal-Based Financial Planning: House Purchase</h2>
+
+        <!-- Four AI-powered question buttons for house purchase financial planning -->
+        <div class="ai-questions-container">
+            <form action="/genai_savings_target" method="post">
+                <input type="submit" class="ai-question-btn" value="How much should I save for a house down payment?">
+            </form>
+            <form action="/genai_loan_options" method="post">
+                <input type="submit" class="ai-question-btn" value="What are my best loan options for home financing?">
+            </form>
+            <form action="/genai_budget_affordability" method="post">
+                <input type="submit" class="ai-question-btn" value="How do I know how much house I can afford?">
+            </form>
+            <form action="/genai_home_insurance" method="post">
+                <input type="submit" class="ai-question-btn" value="What types of home insurance should I consider?">
+            </form>
+        </div>
+
+        <!-- Optional: A field to ask a custom question directly to GenAI -->
+        <form action="/genai_custom_question" method="post">
+            <input type="text" name="q" placeholder="Ask a custom question about buying a house">
+            <input type="submit" value="Get AI Suggestions">
+        </form>
+
+    </section>
+</body>
+</html>
