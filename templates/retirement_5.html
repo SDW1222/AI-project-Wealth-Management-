@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Wealth Planner</title>
+    <style>
+    /* Global Styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f4f8;
+        color: #333;
+    }
+
+    .container {
+        max-width: 70%;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #0044cc;
+        font-size: 2.4em;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    label {
+        font-size: 1.1em;
+        color: #555;
+        margin-bottom: 8px;
+        display: block;
+        font-weight: bold;
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 25px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1.1em;
+        transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        border-color: #007bff;
+    }
+
+    button {
+        background-color: #007bff;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.2em;
+        width: 100%;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    h3 {
+        margin-top: 40px;
+        text-align: center;
+        color: #0044cc;
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+    #retirement-results {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #333;
+        text-align: center;
+        background-color: #e9f7fe;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #bde0ff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            max-width: 90%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        button {
+            font-size: 1.1em;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Retirement Wealth Planner</h1>
+        <form id="retirement-form">
+            <div class="input-group">
+                <label for="current-savings">Current Savings:</label>
+                <input type="text" id="current-savings" placeholder="Enter amount in S$" required>
+            </div>
+
+            <div class="input-group">
+                <label for="monthly-contribution">Monthly Contribution:</label>
+                <input type="text" id="monthly-contribution" placeholder="Enter amount in S$" required>
+            </div>
+
+            <div class="input-group">
+                <label for="retirement-age">Desired Retirement Age:</label>
+                <input type="text" id="retirement-age" placeholder="Enter age" required>
+            </div>
+
+            <div class="input-group">
+                <label for="monthly-expenses">Expected Monthly Expenses in Retirement:</label>
+                <input type="text" id="monthly-expenses" placeholder="Enter amount in S$" required>
+            </div>
+
+            <div class="input-group">
+                <label for="annual-growth-rate">Expected Annual Growth Rate (%):</label>
+                <input type="text" id="annual-growth-rate" placeholder="Enter rate" required>
+            </div>
+
+            <div class="input-group">
+                <label for="current-age">Current Age:</label>
+                <input type="text" id="current-age" placeholder="Enter your current age" required>
+            </div>
+
+            <button type="button" onclick="calculateRetirementGoal()">Calculate Retirement Plan</button>
+        </form>
+
+        <h3>Your Retirement Plan Results</h3>
+        <div id="retirement-results">
+            <!-- Results will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // Add units automatically when the user moves away from the input field
+        document.getElementById('current-savings').addEventListener('blur', function() {
+            addUnit(this, ' $');
+        });
+
+        document.getElementById('monthly-contribution').addEventListener('blur', function() {
+            addUnit(this, ' $/month');
+        });
+
+        document.getElementById('retirement-age').addEventListener('blur', function() {
+            addUnit(this, ' years');
+        });
+
+        document.getElementById('monthly-expenses').addEventListener('blur', function() {
+            addUnit(this, ' $/month');
+        });
+
+        document.getElementById('annual-growth-rate').addEventListener('blur', function() {
+            addUnit(this, ' %');
+        });
+
+        document.getElementById('current-age').addEventListener('blur', function() {
+            addUnit(this, ' years');
+        });
+
+        function addUnit(input, unit) {
+            if (input.value && !input.value.includes(unit)) {
+                input.value += unit;
+            }
+        }
+
+        function calculateRetirementGoal() {
+            const currentSavings = parseFloat(document.getElementById('current-savings').value);
+            const monthlyContribution = parseFloat(document.getElementById('monthly-contribution').value);
+            const retirementAge = parseInt(document.getElementById('retirement-age').value);
+            const monthlyExpenses = parseFloat(document.getElementById('monthly-expenses').value);
+            const annualGrowthRate = parseFloat(document.getElementById('annual-growth-rate').value) / 100;
+            const currentAge = parseInt(document.getElementById('current-age').value);
+
+            const yearsUntilRetirement = retirementAge - currentAge;
+
+            // Calculate future value of current savings
+            const futureValueOfSavings = currentSavings * Math.pow((1 + annualGrowthRate), yearsUntilRetirement);
+
+            // Calculate future value of monthly contributions
+            const monthlyGrowthRate = annualGrowthRate / 12;
+            const monthsUntilRetirement = yearsUntilRetirement * 12;
+            const futureValueOfContributions = monthlyContribution * ((Math.pow(1 + monthlyGrowthRate, monthsUntilRetirement) - 1) / monthlyGrowthRate);
+
+            // Calculate total savings at retirement
+            const totalSavingsAtRetirement = futureValueOfSavings + futureValueOfContributions;
+
+            // Estimate the required savings
+            const retirementYears = 25;  // Assume 25 years in retirement
+            const totalRequiredSavings = monthlyExpenses * 12 * retirementYears;
+
+            let resultMessage = `Total Savings at Retirement: $${totalSavingsAtRetirement.toFixed(2)}<br>`;
+            resultMessage += `Total Required Savings for Retirement: $${totalRequiredSavings.toFixed(2)}<br>`;
+
+            if (totalSavingsAtRetirement >= totalRequiredSavings) {
+                resultMessage += `<strong>Congratulations! You are on track to meet your retirement goal.</strong>`;
+            } else {
+                resultMessage += `<strong>You may need to adjust your savings strategy to meet your goal.</strong>`;
+            }
+
+            document.getElementById('retirement-results').innerHTML = resultMessage;
+        }
+    </script>
+</body>
+</html>

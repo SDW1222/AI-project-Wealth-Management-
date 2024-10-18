@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Wealth Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for the blue-themed buttons */
+        .retirement-question-btn {
+            display: inline-block;
+            background-color: #0044cc; /* Blue color */
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 300px; /* Ensure enough width */
+            height: auto; /* Dynamic height */
+            text-align: center;
+            word-wrap: break-word;
+            white-space: normal; /* Allow wrapping */
+            transition: background-color 0.3s ease;
+        }
+
+        .retirement-question-btn:hover {
+            background-color: #0033a0; /* Darker blue on hover */
+        }
+
+        .retirement-questions-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .retirement-questions-container form {
+            flex: 1 1 45%; /* Allow two buttons per row */
+            max-width: 45%; /* Prevent excessive stretching */
+            margin: 10px; /* Add space between buttons */
+        }
+
+        /* Style for the container and input form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 250px;
+        }
+
+        input[type="submit"] {
+            background-color: #0044cc; /* Blue color for submit button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0033a0; /* Darker blue on hover */
+        }
+
+        h2 {
+            color: #0044cc; /* Matching blue color */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 70%;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Retirement Wealth Planner</h2>
+
+        <!-- Retirement questions section -->
+        <div class="retirement-questions-container">
+            <form action="/retirement_1" method="post" target="_blank">
+                <input type="hidden" name="question" value="What's the best way to start saving for retirement?">
+                <input type="submit" class="retirement-question-btn" value="What’s the best way to start saving for retirement?">
+            </form>
+
+            <form action="/retirement_2" method="post" target="_blank">
+                <input type="hidden" name="question" value="How can I structure my retirement savings?">
+                <input type="submit" class="retirement-question-btn" value="How can I structure my retirement savings?">
+            </form>
+
+            <form action="/retirement_3" method="post" target="_blank">
+                <input type="hidden" name="question" value="What should I know about taxes in retirement?">
+                <input type="submit" class="retirement-question-btn" value="What should I know about taxes in retirement?">
+            </form>
+
+            <form action="/retirement_4" method="post" target="_blank">
+                <input type="hidden" name="question" value="How do I assess my future income needs for retirement?">
+                <input type="submit" class="retirement-question-btn" value="How do I assess my future income needs for retirement?">
+            </form>
+        </div>
+
+        <!-- Simple Calculation -->
+        <form action="/retirement_5" method="post" target="_blank">
+            <input type="submit" class="retirement-question-btn" value="Simple Calculation">
+        </form>
+
+        <!-- Custom question input -->
+        <form action="/retirement_reply" method="post" target="_blank">
+            <input type="text" name="q" placeholder="Type your question here">
+            <input type="submit" value="Ask GenAI">
+        </form>
+
+        <!-- End form -->
+        <form action="/" method="post">
+            <input type="submit" value="End">
+        </form>
+    </div>
+</body>
+</html>
