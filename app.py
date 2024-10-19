@@ -63,26 +63,27 @@ def house_planning():
 def house_savings_target():
     q = "How much should I save for a house down payment?"
     r = model.generate_content(q)
-
-     # Preprocessing response for better formatting
+    # Preprocessing response to format better for HTML
     processed_response = r.text
-
     # Convert headings (e.g., '1*', '2*') to <h4> tags
     processed_response = processed_response.replace("1*", "<h4>")
     processed_response = processed_response.replace("2*", "</h4><h4>")
     processed_response = processed_response.replace("3*", "</h4><h4>")
     processed_response = processed_response.replace("4*", "</h4><h4>")
-    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
-
+    processed_response += "</h4>"  # Close the final <h4> tag
     # Convert markers (*) to bold and lists where appropriate
     processed_response = processed_response.replace("*", "<strong>")
     processed_response = processed_response.replace("\n- ", "<ul><li>")
     processed_response = processed_response.replace("\n", "</li><li>")
     processed_response += "</li></ul>"
-
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Handle multiple parts of the response (if needed)
+    sections = processed_response.split("\n\n")  # Split by double newlines
+    if len(sections) > 1:
+        processed_response = sections[-1]  # Take the last section if there are multiple parts
     # Add paragraph tags for text that isn't part of a list
     processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
-
     return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for "What are my best loan options for home financing?"
@@ -90,25 +91,27 @@ def house_savings_target():
 def house_loan_options():
     q = "What are my best loan options for home financing?"
     r = model.generate_content(q)
- # Preprocessing response for better formatting
+    # Preprocessing response to format better for HTML
     processed_response = r.text
-
     # Convert headings (e.g., '1*', '2*') to <h4> tags
     processed_response = processed_response.replace("1*", "<h4>")
     processed_response = processed_response.replace("2*", "</h4><h4>")
     processed_response = processed_response.replace("3*", "</h4><h4>")
     processed_response = processed_response.replace("4*", "</h4><h4>")
-    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
-
+    processed_response += "</h4>"  # Close the final <h4> tag
     # Convert markers (*) to bold and lists where appropriate
     processed_response = processed_response.replace("*", "<strong>")
     processed_response = processed_response.replace("\n- ", "<ul><li>")
     processed_response = processed_response.replace("\n", "</li><li>")
     processed_response += "</li></ul>"
-
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Handle multiple parts of the response (if needed)
+    sections = processed_response.split("\n\n")  # Split by double newlines
+    if len(sections) > 1:
+        processed_response = sections[-1]  # Take the last section if there are multiple parts
     # Add paragraph tags for text that isn't part of a list
     processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
-    
     return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for "How can I figure out the right budget for my new home?"
@@ -116,25 +119,27 @@ def house_loan_options():
 def house_budget_affordability():
     q = "How can I figure out the right budget for my new home?"
     r = model.generate_content(q)
- # Preprocessing response for better formatting
+    # Preprocessing response to format better for HTML
     processed_response = r.text
-
     # Convert headings (e.g., '1*', '2*') to <h4> tags
     processed_response = processed_response.replace("1*", "<h4>")
     processed_response = processed_response.replace("2*", "</h4><h4>")
     processed_response = processed_response.replace("3*", "</h4><h4>")
     processed_response = processed_response.replace("4*", "</h4><h4>")
-    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
-
+    processed_response += "</h4>"  # Close the final <h4> tag
     # Convert markers (*) to bold and lists where appropriate
     processed_response = processed_response.replace("*", "<strong>")
     processed_response = processed_response.replace("\n- ", "<ul><li>")
     processed_response = processed_response.replace("\n", "</li><li>")
     processed_response += "</li></ul>"
-
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Handle multiple parts of the response (if needed)
+    sections = processed_response.split("\n\n")  # Split by double newlines
+    if len(sections) > 1:
+        processed_response = sections[-1]  # Take the last section if there are multiple parts
     # Add paragraph tags for text that isn't part of a list
     processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
-
     return render_template("house_savings_target_reply.html", r=processed_response)
 
 # Route for "What types of home insurance should I consider?"
@@ -142,52 +147,57 @@ def house_budget_affordability():
 def house_insurance_options():
     q = "What types of home insurance should I consider?"
     r = model.generate_content(q)
- # Preprocessing response for better formatting
+    # Preprocessing response to format better for HTML
     processed_response = r.text
-
     # Convert headings (e.g., '1*', '2*') to <h4> tags
     processed_response = processed_response.replace("1*", "<h4>")
     processed_response = processed_response.replace("2*", "</h4><h4>")
     processed_response = processed_response.replace("3*", "</h4><h4>")
     processed_response = processed_response.replace("4*", "</h4><h4>")
-    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
-
+    processed_response += "</h4>"  # Close the final <h4> tag
     # Convert markers (*) to bold and lists where appropriate
     processed_response = processed_response.replace("*", "<strong>")
     processed_response = processed_response.replace("\n- ", "<ul><li>")
     processed_response = processed_response.replace("\n", "</li><li>")
     processed_response += "</li></ul>"
-
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Handle multiple parts of the response (if needed)
+    sections = processed_response.split("\n\n")  # Split by double newlines
+    if len(sections) > 1:
+        processed_response = sections[-1]  # Take the last section if there are multiple parts
     # Add paragraph tags for text that isn't part of a list
     processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
-
     return render_template("house_savings_target_reply.html", r=processed_response)
 
-# Route for handling custom house purchase questions
 @app.route("/house_custom_question", methods=["GET", "POST"])
 def house_custom_question():
     user_question = request.form['q']  # Custom question entered by the user
     r = model.generate_content(user_question)
- # Preprocessing response for better formatting
+    # Preprocessing response to format better for HTML
     processed_response = r.text
-
     # Convert headings (e.g., '1*', '2*') to <h4> tags
     processed_response = processed_response.replace("1*", "<h4>")
     processed_response = processed_response.replace("2*", "</h4><h4>")
     processed_response = processed_response.replace("3*", "</h4><h4>")
     processed_response = processed_response.replace("4*", "</h4><h4>")
-    processed_response = processed_response + "</h4>"  # Close the final <h4> tag
-
+    processed_response += "</h4>"  # Close the final <h4> tag
     # Convert markers (*) to bold and lists where appropriate
     processed_response = processed_response.replace("*", "<strong>")
     processed_response = processed_response.replace("\n- ", "<ul><li>")
     processed_response = processed_response.replace("\n", "</li><li>")
     processed_response += "</li></ul>"
-
+    # Remove empty list items
+    processed_response = processed_response.replace("<li></li>", "")
+    # Handle multiple parts of the response (if needed)
+    sections = processed_response.split("\n\n")  # Split by double newlines
+    if len(sections) > 1:
+        processed_response = sections[-1]  # Take the last section if there are multiple parts
     # Add paragraph tags for text that isn't part of a list
     processed_response = "<p>" + processed_response.replace("\n\n", "</p><p>") + "</p>"
 
     return render_template("house_custom_question_reply.html", r=processed_response)
+
 
 # Dummy profiles, replace with actual profile data if needed
 profiles = {
