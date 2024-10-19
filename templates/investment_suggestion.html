@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Personalized Investment Suggestion</title>
+</head>
+<body>
+    <div class="suggestion-box">
+        <h2>{{ profile.name }} Investment Suggestion</h2>
+        <div>
+            <!-- Render the AI-generated suggestion as HTML -->
+            {{ suggestion | safe }}
+        </div>
+    
+        <div class="navigation-buttons">
+            <a href="{{ url_for('ai_suggestions') }}" class="button">Back to AI Suggestions</a>
+            <a href="{{ url_for('index') }}" class="button">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
