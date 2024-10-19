@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
+    color: #333; /* Darker gray for readability */
 }
 
 nav {
@@ -35,6 +36,7 @@ nav ul li a {
     font-size: 1.2em;
 }
 
+/* Section styling */
 section {
     margin: 20px;
     padding: 20px;
@@ -48,6 +50,7 @@ section h2 {
     font-size: 1.8em;
     border-bottom: 2px solid #0044cc;
     padding-bottom: 10px;
+    text-align: left; /* Left aligned for headers */
 }
 
 .card, .goal, .portfolio-summary, .suggestions {
@@ -58,20 +61,83 @@ section h2 {
     margin: 10px 0;
 }
 
-button {
-    background-color: #0044cc;
+/* Button Styles */
+button, .button {
+    background-color: #3498DB; /* Blue button */
     color: white;
-    padding: 10px 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+    text-decoration: none;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0033a0;
+button:hover, .button:hover {
+    background-color: #2980B9; /* Darker blue on hover */
 }
 
-/* Media Queries */
+/* Suggestion Box Styling */
+.suggestion-box {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    line-height: 1.6;  /* Improved readability */
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Bold Headers for Suggestion Box */
+.suggestion-box h2, .suggestion-box h3, .suggestion-box h4 {
+    font-weight: bold; /* Bold only the headers */
+    color: #0044cc; /* Blue color for headers */
+}
+
+.suggestion-box p, .suggestion-box li {
+    font-weight: normal; /* Ensure normal font weight for regular text */
+    color: #333; /* Standard readable color for text */
+}
+
+.suggestion-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Final note in suggestion box */
+.final-note {
+    font-size: 16px;
+    color: #27AE60; /* Subtle green for final important note */
+    font-style: italic;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+button, .button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Styling */
+
+/* For tablet-sized devices and smaller */
 @media (max-width: 768px) {
     nav ul li {
         display: block;
@@ -81,60 +147,91 @@ button:hover {
     section {
         margin: 10px;
     }
+
+    .suggestion-box {
+        font-size: 16px; /* Adjust font-size for smaller screens */
+    }
 }
 
-/* Body styles */
-body {
-    font-family: Arial, sans-serif;
-    color: #333; /* Darker gray for readability */
-    background-color: #f5f5f5; /* Light background */
+/* For mobile devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .suggestion-box {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* Container Styling */
+.container {
+    width: 80%;  /* Adjust width as per your preference */
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center;
 }
 
-/* Headings */
 h1, h2 {
-    color: #2C3E50; /* Dark blue for headings */
+    color: #0044cc;
 }
 
-h1 {
-    font-size: 36px;
+/* Increase label and input box size for stock input */
+.ai-container {
+    text-align: center; /* Center align everything in the AI page */
 }
 
-h2 {
-    font-size: 28px;
+.ai-container label {
+    font-size: 1.6em; /* Increase the size of label text */
+    margin-right: 10px;
 }
 
-/* Paragraph and label styles */
-p, label {
-    font-size: 18px;
-}
-
-/* Input styles */
-input {
-    font-size: 18px;
-    padding: 10px;
-    margin: 5px;
-}
-
-/* Button styles */
-button {
-    background-color: #3498DB; /* Blue button */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #2980B9; /* Darker blue on hover */
-}
-
-/* Suggestion text styling */
-#investmentSuggestion {
+.ai-container input[type="text"] {
+    padding: 12px 20px; /* Padding for the input box */
     font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #27AE60; /* Green for positive results */
+    width: 500px; /* Make the input box wider */
+    border-radius: 5px; /* Rounded corners for input box */
+    margin-right: 20px; /* Add spacing between input and button */
+}
+
+/* Increase button size for consistency */
+.ai-container button {
+    padding: 12px 25px;
+    font-size: 1.3em;
+}
+
+/* Margin and alignment adjustments for the dashboard */
+.dashboard h2 {
+    text-align: left; /* Left align headers on the dashboard */
+    margin-bottom: 15px;
+}
+
+.dashboard .card, .goal, .portfolio-summary {
+    font-size: 1.2em;
+    margin-left: 20px; /* Adjust margin for left alignment */
+}
+
+/* Font size for the data */
+.card-data {
+    font-size: 1.2em; /* Increase data font size */
+    text-align: left; /* Keep data left aligned */
+    padding-left: 20px;
+}
+
+/* Center align the AI Investment suggestion content */
+.ai-suggestion-section {
+    text-align: center;
+    font-size: 1.3em; /* Slightly increase font size */
 }
