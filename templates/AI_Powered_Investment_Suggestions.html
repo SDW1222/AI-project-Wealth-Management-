@@ -7,29 +7,18 @@
     <title>AI-Powered Investment Suggestions</title>
 </head>
 <body>
-    <h1>AI-Powered Investment Suggestions</h1>
-    <p>Welcome to our platform where AI provides personalized investment suggestions to help you achieve your financial goals.</p>
+    <div class="container">
+        <h1>AI-Powered Investment Suggestions</h1>
+        <h3>Welcome to our platform where AI provides personalized investment suggestions to help you achieve your financial goals.</h3>
 
-    <section id="suggestions">
-        <h2>Investment Suggestions Based on Your Profile</h2>
+        <section id="suggestions">
+            <h2>Investment Suggestions Based on Your Profile</h2>
 
-        <!-- Form for Profile 1 -->
-        <form action="/get_suggestions/1" method="POST">
-            <button type="submit">Increase bonds allocation to 40%</button>
-        </form>
-
-        <!-- Form for Profile 2 -->
-        <form action="/get_suggestions/2" method="POST">
-            <button type="submit">Consider investing in emerging markets</button>
-        </form>
-
-        <!-- Form for Profile 3 -->
-        <form action="/get_suggestions/3" method="POST">
-            <button type="submit">Reduce risk by diversifying real estate holdings</button>
-        </form>
-    </section>
-
-    <p id="apiSuggestion">{{ suggestion }}</p> <!-- Flask will inject the AI suggestion here -->
+            <!-- Buttons for different profile suggestions -->
+            <a href="{{ url_for('get_suggestions', profile_id=1) }}" class="button">Increase Bonds Allocation to 40%</a>
+            <a href="{{ url_for('get_suggestions', profile_id=2) }}" class="button">Consider Investing in Emerging Markets</a>
+            <a href="{{ url_for('get_suggestions', profile_id=3) }}" class="button">Reduce Risk by Diversifying Real Estate Holdings</a>
+        </section>
 
     <!-- Stock Checker Section -->
     <section id="stock-checker">
@@ -39,6 +28,11 @@
         <button onclick="checkStockInvestment()">Check Investment</button>
         <p id="investmentSuggestion"></p>
     </section>
+
+    <!-- Back to Dashboard Button -->
+    <a href="{{ url_for('index') }}" class="button">Back to Dashboard</a>
+
+    </div>
 
     <script>
         function checkStockInvestment() {
@@ -57,8 +51,6 @@
             }
         }
     </script>
-
-    <a href="/"><button>Back to Dashboard</button></a>
 
 </body>
 </html>
