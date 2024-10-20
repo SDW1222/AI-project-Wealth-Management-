@@ -99,14 +99,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>What should I know about taxes in retirement?</h1>
-        <h2>{{r}}</h2>
-        <form action="/retirement" method="post">
-            <input type="submit" value="Main">
-        </form>
-        <form action="/" method="post">
-            <input type="submit" value="End">
-        </form>
+        <h2>What should I know about taxes in retirement?</h2>
+        <div class="reply-message">
+            <p>{{ r | safe }}</p> <!-- The pre-processed content with headings and paragraphs -->
+        </div>
+        <div class="btn-container">
+            <form action="/retirement" method="post" style="display:inline;">
+                <input type="submit" class="btn" value="Main">
+            </form>
+            <form action="/" method="post" style="display:inline;">
+                <input type="submit" class="btn" value="End">
+            </form>
+        </div>
     </div>
 </body>
 </html>

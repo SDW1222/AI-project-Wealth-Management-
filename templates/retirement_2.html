@@ -99,16 +99,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>How Can I Structure My Retirement Savings?</h1>
+        <h2>How can I structure my retirement savings?</h2>
         <div class="reply-message">
             <p>{{ r | safe }}</p> <!-- The pre-processed content with headings and paragraphs -->
         </div>
-        <form action="/retirement" method="post">
-            <input type="submit" class="btn" value="Main">
-        </form>
-        <form action="/" method="post">
-            <input type="submit" class="btn" value="End">
-        </form>
+        <div class="btn-container">
+            <form action="/retirement" method="post" style="display:inline;">
+                <input type="submit" class="btn" value="Main">
+            </form>
+            <form action="/" method="post" style="display:inline;">
+                <input type="submit" class="btn" value="End">
+            </form>
+        </div>
     </div>
 </body>
 </html>

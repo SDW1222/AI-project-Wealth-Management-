@@ -99,9 +99,9 @@
 </head>
 <body>
     <div class="container">
-        <h2>Reply</h2>
+        <h2>Your Reply</h2>
         <div class="reply-message">
-            {{ r | safe }} <!-- The pre-processed content with headings and paragraphs -->
+            <p>{{ r | safe }}</p> <!-- The pre-processed content with headings and paragraphs -->
         </div>
         <div class="btn-container">
             <form action="/retirement" method="post" style="display:inline;">
