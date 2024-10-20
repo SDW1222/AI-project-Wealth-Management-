@@ -9,78 +9,55 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             color: #333;
+        }
+
+        h2, h4 {
+            color: #0044cc; /* Matching blue color */
+            text-align: center;
         }
 
         .container {
             max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #fff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
             text-align: center;
-        }
-
-        h2, h4 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            font-size: 2em;
-        }
-
-        h4 {
-            font-size: 1.3em;
-            color: #2980b9;
         }
 
         .reply-message {
-            font-size: 1.15em;
-            line-height: 1.8;
-            color: #34495e;
-            text-align: justify;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #555;
         }
 
+        /* Styles for the blue-themed buttons */
         .btn {
             display: inline-block;
-            background-color: #2980b9;
+            background-color: #0044cc; /* Blue color */
             color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            margin: 15px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 10px;
             border: none;
             cursor: pointer;
             font-size: 1.1em;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #1f5f85;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: #0033a0; /* Darker blue on hover */
         }
 
-        .btn-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .container {
-                margin: 20px;
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 15px 0;
+                margin: 10px;
+                padding: 10px;
             }
         }
     </style>
@@ -100,4 +77,3 @@
     </div>
 </body>
 </html>
-
