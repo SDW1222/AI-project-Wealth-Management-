@@ -86,22 +86,22 @@
 
         <!-- Four AI-powered question buttons -->
         <div class="ai-questions-container">
-            <form action="/genai_analyze_risk" method="post">
+            <form action="/portfolio_1" method="post">
                 <input type="submit" class="ai-question-btn" value="What are the key factors to consider when balancing a portfolio?">
             </form>
-            <form action="/genai_optimize_allocation" method="post">
+            <form action="/portfolio_2" method="post">
                 <input type="submit" class="ai-question-btn" value="How can I optimize my asset allocation?">
             </form>
-            <form action="/genai_market_trends" method="post">
+            <form action="/portfolio_3" method="post">
                 <input type="submit" class="ai-question-btn" value="What market trends should I watch for?">
             </form>
-            <form action="/genai_performance_last_quarter" method="post">
+            <form action="/portfolio_4" method="post">
                 <input type="submit" class="ai-question-btn" value="What's the difference between active and passive portfolio management?">
             </form>
         </div>
 
         <!-- Optional: A field to ask a custom question directly to GenAI -->
-        <form action="/genai_custom_question" method="post">
+        <form action="/portfolio_gen" method="post">
             <input type="text" name="q" placeholder="Ask a custom question">
             <input type="submit" value="Get AI Suggestions">
         </form>
