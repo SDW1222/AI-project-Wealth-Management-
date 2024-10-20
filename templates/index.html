@@ -49,21 +49,23 @@
 </div>
     </section>
 
-    <!-- Portfolio Management Section -->
-    <section id="portfolio">
-        <h2>Portfolio Management & Analytics</h2>
-        <div class="portfolio-summary">
-            <p><strong>Asset Allocation:</strong></p>
-            <ul>
-                <li>Stocks: 50%</li>
-                <li>Bonds: 30%</li>
-                <li>Real Estate: 10%</li>
-                <li>Cash: 10%</li>
-            </ul>
-            <p><strong>Risk Level:</strong> Moderate</p>
-            <button>View Analytics</button>
-        </div>
-    </section>
+<!-- Portfolio Management Section -->
+<section id="portfolio">
+    <h2>Portfolio Management & Analytics</h2>
+    <form action="/portfolio" method="post">
+        <label>Asset Allocation:</label>
+        <ul>
+            <li>Stocks: 50%</li>
+            <li>Bonds: 30%</li>
+            <li>Real Estate: 10%</li>
+            <li>Cash: 10%</li>
+        </ul>
+        <label>Risk Level:</label>
+        <input type="text" value="Moderate" readonly>
+        <button type="submit" aria-label="View Portfolio Management & Analytics">Portfolio Management & Analytics</button>
+    </form>
+</section>
+
 
     <!-- AI-Powered Investment Suggestions -->
     <section id="ai-suggestions">
