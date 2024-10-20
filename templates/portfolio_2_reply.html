@@ -13,7 +13,7 @@
             color: #333;
         }
 
-        h2, h4 {
+        h2 {
             color: #0044cc; /* Matching blue color */
             text-align: center;
         }
@@ -25,13 +25,19 @@
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            text-align: center;
         }
 
         .reply-message {
             font-size: 1.2em;
             margin-bottom: 20px;
-            color: #555;
+            color: #777; /* Grey color for the reply */
+            text-align: left; /* Left-aligned reply text */
+            white-space: pre-wrap; /* Preserve formatting */
+        }
+
+        /* Centering buttons */
+        .button-container {
+            text-align: center;
         }
 
         /* Styles for the blue-themed buttons */
@@ -66,15 +72,16 @@
     <div class="container">
         <h2>Your Reply</h2>
         <div class="reply-message">
-            <h4>{{r}}</h4>
+            <h4>{{r}}</h4> <!-- Reply text will appear in grey and left-aligned -->
         </div>
-        <form action="/portfolio" method="post">
-            <input type="submit" class="btn" value="Back To Portfolio">
-        </form>
-        <form action="/" method="post">
-            <input type="submit" class="btn" value="End">
-        </form>
+        <div class="button-container">
+            <form action="/portfolio" method="post">
+                <input type="submit" class="btn" value="Back To Portfolio">
+            </form>
+            <form action="/" method="post">
+                <input type="submit" class="btn" value="End">
+            </form>
+        </div>
     </div>
 </body>
 </html>
-
